@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Género de Canciones - Reporte Final</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #4CAF50;
+        }
+        p {
+            margin: 10px 0;
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
+
+    <h1>Predicción de Género de Canciones Usando Modelos de Aprendizaje Automático</h1>
+
+    <h2>Descripción del Proyecto</h2>
+    <p>Este proyecto tiene como objetivo construir varios modelos de aprendizaje automático para predecir el género de una canción basándose en las letras transcritas de canciones obtenidas de YouTube. El proyecto utiliza técnicas de Procesamiento de Lenguaje Natural (NLP) para preprocesar las letras, así como diferentes modelos de clasificación para realizar la predicción de género.</p>
+
+    <h2>Objetivo</h2>
+    <p>El objetivo es crear un sistema que, dado el texto de una letra de canción, sea capaz de predecir su género utilizando varios modelos de clasificación. El sistema permite comparar modelos de diferentes versiones (<code>v1</code> y <code>v2</code>) y analizar la distribución de predicciones con un enfoque en el rendimiento.</p>
+
+    <h2>Datos Utilizados</h2>
+    <p>Se utilizó una base de datos de canciones que incluye los siguientes campos:</p>
+    <ul>
+        <li><code>artist_name</code>, <code>track_name</code>, <code>release_date</code>, <code>genre</code>, <code>lyrics</code>, <code>len</code>, entre otros.</li>
+    </ul>
+    <p>Las letras de las canciones fueron preprocesadas para eliminar <em>stopwords</em>, caracteres especiales y reducirlas a un formato útil para los modelos.</p>
+
+    <h2>Modelos Implementados</h2>
+    <p>Se entrenaron los siguientes modelos de clasificación para predecir el género de las canciones:</p>
+    <ul>
+        <li><strong>Naive Bayes</strong> (<code>v1</code> y <code>v2</code>)</li>
+        <li><strong>MLPClassifier</strong> (<code>v1</code> y <code>v2</code>)</li>
+        <li><strong>Random Forest</strong> (<code>v1</code> y <code>v2</code>)</li>
+        <li><strong>Logistic Regression</strong> (<code>v1</code> y <code>v2</code>)</li>
+        <li><strong>SVM</strong> (<code>v1</code> y <code>v2</code>)</li>
+        <li><strong>Gradient Boosting</strong> (<code>v1</code> y <code>v2</code>)</li>
+    </ul>
+
+    <h2>Proceso de Preprocesamiento</h2>
+    <p>El preprocesamiento incluyó:</p>
+    <ul>
+        <li><strong>Limpieza de Texto:</strong> Eliminación de caracteres especiales, stopwords, y conversión a minúsculas.</li>
+        <li><strong>Vectorización:</strong> Utilización de <code>TF-IDF</code> para transformar las letras en vectores numéricos.</li>
+    </ul>
+
+    <h2>Resultados</h2>
+    <p>Se realizaron predicciones utilizando fragmentos de las letras y las letras completas combinadas. Las predicciones de las letras completas recibieron un peso de <strong>x3</strong> para darles mayor relevancia en el resultado final. Los modelos <code>v1</code> y <code>v2</code> se compararon en términos de precisión y consistencia.</p>
+
+    <h3>Resultados del Modelo Naive Bayes</h3>
+    <table>
+        <tr>
+            <th>Versión</th>
+            <th>Precisión</th>
+        </tr>
+        <tr>
+            <td>Naive Bayes <code>v1</code></td>
+            <td>0.44</td>
+        </tr>
+        <tr>
+            <td>Naive Bayes <code>v2</code></td>
+            <td>Mejora con Laplace Smoothing a 0.48</td>
+        </tr>
+    </table>
+
+    <h3>Resultados del Modelo MLPClassifier</h3>
+    <table>
+        <tr>
+            <th>Versión</th>
+            <th>Precisión</th>
+        </tr>
+        <tr>
+            <td>MLPClassifier <code>v1</code></td>
+            <td>0.34</td>
+        </tr>
+        <tr>
+            <td>MLPClassifier <code>v2</code></td>
+            <td>Mejora con nuevas capas a 0.38</td>
+        </tr>
+    </table>
+
+    <h2>Conclusiones</h2>
+    <p>Los modelos <code>v2</code> mejoraron significativamente en comparación con las versiones <code>v1</code>, especialmente en el caso de Random Forest y Gradient Boosting. Estos modelos demostraron una mayor precisión y consistencia en las predicciones, tanto para las letras separadas como para las letras completas combinadas.</p>
+
+    <p>Se observó una mayor variabilidad en los resultados del <code>MLPClassifier</code>, lo que indica que la estructura de la red neuronal podría beneficiarse de ajustes adicionales.</p>
+
+    <h2>Implementación en GitHub Pages</h2>
+    <p>Este reporte se presenta usando <strong>GitHub Pages</strong>, que permite hacer accesible el proyecto y los resultados de manera pública.</p>
 
 </body>
 </html>
