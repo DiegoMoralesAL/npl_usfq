@@ -139,15 +139,9 @@
         weighted avg f1-score: 0.35
     </div>
 
-    <h2>5. Cálculo de Porcentajes</h2>
-    <p>Se implementó un sistema para calcular los porcentajes de predicción de géneros. Para cada canción, se realizaron predicciones tanto sobre fragmentos individuales como sobre la letra completa, otorgando un peso adicional a esta última.</p>
-    <p>El porcentaje para cada género se calculó de la siguiente forma:</p>
-    <div class="code-block">
-        Porcentaje de Género = (Número de predicciones del género / Total de predicciones) * 100
-    </div>
-
+    <h2>5. Resultados</h2>
     <h3>Ejemplo 1: Take Me Home (Country)</h3>
-    <p>Grupos de textos extraídos:</p>
+    Grupos de textos extraídos:
     <div class="code-block">
         I belong<br>
         West Virginia<br>
@@ -193,7 +187,7 @@
     </table>
 
     <h3>Ejemplo 2: Blinding Lights (Pop)</h3>
-    <p>Grupos de textos extraídos:</p>
+    Grupos de textos extraídos:
     <div class="code-block">
         tonight<br>
         I'm running out of time<br>
@@ -238,7 +232,7 @@
     </table>
 
     <h3>Ejemplo 3: Numb (Rock)</h3>
-    <p>Grupos de textos extraídos:</p>
+    Grupos de textos extraídos:
     <div class="code-block">
         don't you see that you're smothering me<br>
         holding too tightly<br>
@@ -274,46 +268,8 @@
         </tr>
     </table>
 
-    <h2>6. Resultados de los Modelos Mejorados (v2)</h2>
-
-    <h3>Naive Bayes V2</h3>
-    <div class="code-block">
-        accuracy: 0.38<br>
-        weighted avg f1-score: 0.35
-    </div>
-
-    <h3>MLPClassifier V2</h3>
-    <div class="code-block">
-        accuracy: 0.35<br>
-        weighted avg f1-score: 0.35
-    </div>
-
-    <h3>Random Forest V2</h3>
-    <div class="code-block">
-        accuracy: 0.34<br>
-        weighted avg f1-score: 0.27
-    </div>
-
-    <h3>Logistic Regression V2</h3>
-    <div class="code-block">
-        accuracy: 0.39<br>
-        weighted avg f1-score: 0.38
-    </div>
-
-    <h3>SVM V2</h3>
-    <div class="code-block">
-        accuracy: 0.39<br>
-        weighted avg f1-score: 0.38
-    </div>
-
-    <h3>Gradient Boosting V2</h3>
-    <div class="code-block">
-        accuracy: 0.38<br>
-        weighted avg f1-score: 0.37
-    </div>
-
-    <h2>7. Conclusión del Proyecto</h2>
-    <p>El proyecto ha demostrado el potencial del procesamiento de lenguaje natural para la clasificación de géneros musicales. A través de la comparación de múltiples modelos, se observaron variaciones en el rendimiento, siendo <strong>Random Forest</strong> y <strong>SVM</strong> los que mostraron mejores resultados generales.</p>
+    <h2>6. Conclusiones</h2>
+    <p>El proyecto ha demostrado el potencial del procesamiento de lenguaje natural para la clasificación de géneros musicales. A través de la comparación de múltiples modelos, se observaron variaciones en el rendimiento, siendo **Random Forest** y **SVM** los que mostraron mejores resultados generales.</p>
     <p>El ajuste de hiperparámetros en la segunda versión mejoró el rendimiento de algunos modelos, pero sigue habiendo desafíos en la clasificación de géneros menos representados. Las técnicas de ponderación para dar mayor peso a la predicción de la letra completa aseguraron una representación más precisa del género.</p>
     <p>Este proyecto sienta las bases para futuras mejoras utilizando modelos más avanzados, como redes neuronales recurrentes o modelos transformadores.</p>
 
