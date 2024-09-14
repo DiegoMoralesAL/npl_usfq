@@ -39,6 +39,22 @@
             text-align: center;
             color: #555;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
@@ -123,16 +139,140 @@
         weighted avg f1-score: 0.35
     </div>
 
-    <h2>5. Mejoras en los Modelos (v2)</h2>
-    <p>Se realizaron ajustes en los hiperparámetros para mejorar los resultados de los modelos:</p>
+    <h2>5. Cálculo de Porcentajes</h2>
+    <p>Se implementó un sistema para calcular los porcentajes de predicción de géneros. Para cada canción, se realizaron predicciones tanto sobre fragmentos individuales como sobre la letra completa, otorgando un peso adicional a esta última.</p>
+    <p>El porcentaje para cada género se calculó de la siguiente forma:</p>
+    <div class="code-block">
+        Porcentaje de Género = (Número de predicciones del género / Total de predicciones) * 100
+    </div>
 
-    <ul>
-        <li><strong>Naive Bayes</strong>: Ajuste del parámetro de suavizado <code>alpha=0.5</code>.</li>
-        <li><strong>MLPClassifier</strong>: Más capas y ajuste en la tasa de aprendizaje.</li>
-        <li><strong>Random Forest</strong>: Más estimadores y mayor profundidad.</li>
-        <li><strong>SVM</strong>: Cambio de kernel a <code>rbf</code> (no lineal).</li>
-        <li><strong>Gradient Boosting</strong>: Más estimadores y mayor profundidad.</li>
-    </ul>
+    <h3>Ejemplo 1: Take Me Home (Country)</h3>
+    <p>Grupos de textos extraídos:</p>
+    <div class="code-block">
+        I belong<br>
+        West Virginia<br>
+        Mountain Mama Take Me Home Country Road<br>
+        I hear her voice in the morning<br>
+        me<br>
+        radio<br>
+        remind me<br>
+        home<br>
+        driving down<br>
+        the road I get a Beat<br>
+        I should have been home yesterday yesterday
+    </div>
+
+    <table>
+        <tr>
+            <th>Modelo</th>
+            <th>Pop</th>
+            <th>Country</th>
+            <th>Jazz</th>
+            <th>Blues</th>
+            <th>Rock</th>
+            <th>Reggae</th>
+        </tr>
+        <tr>
+            <td>v1</td>
+            <td>41.67%</td>
+            <td>33.33%</td>
+            <td>12.96%</td>
+            <td>9.26%</td>
+            <td>2.78%</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>v2</td>
+            <td>51.85%</td>
+            <td>35.19%</td>
+            <td>0.93%</td>
+            <td>4.63%</td>
+            <td>4.63%</td>
+            <td>2.78%</td>
+        </tr>
+    </table>
+
+    <h3>Ejemplo 2: Blinding Lights (Pop)</h3>
+    <p>Grupos de textos extraídos:</p>
+    <div class="code-block">
+        tonight<br>
+        I'm running out of time<br>
+        cuz I can see the sunlight up the sky<br>
+        so I hit the road and overdrive baby<br>
+        oh<br>
+        empty<br>
+        I was a road to judge me<br>
+        I can't see clearly<br>
+        when you go<br>
+        oh oh I myself
+    </div>
+
+    <table>
+        <tr>
+            <th>Modelo</th>
+            <th>Pop</th>
+            <th>Blues</th>
+            <th>Jazz</th>
+            <th>Rock</th>
+            <th>Country</th>
+            <th>Reggae</th>
+        </tr>
+        <tr>
+            <td>v1</td>
+            <td>37.88%</td>
+            <td>30.30%</td>
+            <td>15.15%</td>
+            <td>9.09%</td>
+            <td>7.58%</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>v2</td>
+            <td>46.97%</td>
+            <td>22.73%</td>
+            <td>7.58%</td>
+            <td>9.09%</td>
+            <td>9.09%</td>
+            <td>4.55%</td>
+        </tr>
+    </table>
+
+    <h3>Ejemplo 3: Numb (Rock)</h3>
+    <p>Grupos de textos extraídos:</p>
+    <div class="code-block">
+        don't you see that you're smothering me<br>
+        holding too tightly<br>
+        to the control<br>
+        cuz everything that you thought I would be<br>
+        is falling apart right in front of you
+    </div>
+
+    <table>
+        <tr>
+            <th>Modelo</th>
+            <th>Pop</th>
+            <th>Jazz</th>
+            <th>Reggae</th>
+            <th>Blues</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>v1</td>
+            <td>36.11%</td>
+            <td>41.67%</td>
+            <td>19.44%</td>
+            <td>2.78%</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td>v2</td>
+            <td>38.89%</td>
+            <td>30.56%</td>
+            <td>19.44%</td>
+            <td>-</td>
+            <td>11.11%</td>
+        </tr>
+    </table>
 
     <h2>6. Resultados de los Modelos Mejorados (v2)</h2>
 
