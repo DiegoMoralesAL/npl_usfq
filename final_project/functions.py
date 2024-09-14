@@ -34,7 +34,6 @@ def predecir_genero(model, nuevas_letras):
     nuevas_letras_limpias = limpiar_texto(nuevas_letras)
     letras_vectorizadas = tfidf.transform([nuevas_letras_limpias]).toarray()
     prediccion = model.predict(letras_vectorizadas)
-    print(prediccion)
     return prediccion[0]
 
 
@@ -116,6 +115,6 @@ def transcribe_audio(audio_file):
     # Procesar y mostrar los resultados
     for result in response.results:
         results.append(result.alternatives[0].transcript)
-        print(f"Transcripción: {result.alternatives[0].transcript}")
+        print(f"{result.alternatives[0].transcript}")
 
     return results
